@@ -3,7 +3,7 @@ function index({ data }) {
 
   return (
     <div>
-      <h1>t</h1>
+      <h1>{data.full_name}</h1>
     </div>
   );
 }

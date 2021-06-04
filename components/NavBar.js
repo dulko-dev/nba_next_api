@@ -1,5 +1,6 @@
 import styles from "../styles/NavBar.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function NavBar() {
   return (
@@ -8,7 +9,9 @@ function NavBar() {
         <Image src="/logo.png" alt="logo NBA" width={150} height={75} />
       </div>
       <ul className={styles.ul}>
-        <li>Players</li>
+        <Link href="/players">
+          <li>Players</li>
+        </Link>
         <li>Games</li>
         <li>Stats</li>
         <li>Contact</li>

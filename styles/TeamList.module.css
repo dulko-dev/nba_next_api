@@ -1,6 +1,6 @@
 .team {
     display: inline-block;
     min-width: 225px;
-    height: 150px;
+    height: 100px;
     cursor: pointer;
 }
