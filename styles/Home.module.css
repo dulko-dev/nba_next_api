@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
+
+.home {
+  display: flex;
+  justify-content: center;
+  height: 250px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  font-family: "ZCOOL KuaiLe", cursive;
+}

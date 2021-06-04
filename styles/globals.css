@@ -1,4 +1,3 @@
-
 *,
 *::after,
 *::before {
@@ -11,6 +10,8 @@ body {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  color: rgb(240, 240, 240);
+
   background-color: rgba(0, 0, 0, 0.8);
 }
 
