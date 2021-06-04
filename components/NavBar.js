@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.img_logo}>
-        <Image src="/logo.png" alt="logo NBA" width={200} height={100} />
+        <Image src="/logo.png" alt="logo NBA" width={150} height={75} />
       </div>
       <ul className={styles.ul}>
         <li>Players</li>

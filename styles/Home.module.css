@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
 
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
 .home {
   display: flex;
   justify-content: center;
@@ -14,3 +19,11 @@
   font-size: 3em;
   font-family: "ZCOOL KuaiLe", cursive;
 }
+
+.team_list {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
