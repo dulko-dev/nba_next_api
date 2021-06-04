@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from "react";
-import ReactPaginate from "react-paginate";
-import Router, { useRouter } from "next/router";
-import styles from '../styles/Players.module.css'
+import React from "react";
+import Pagination from "react-js-pagination";
+import { useRouter } from "next/router";
+import styles from "../styles/Players.module.css";
 
 function Players({ totalPage, current, posts }) {
   const router = useRouter();
 
-  const [isLoading, setLoading] = useState(false);
-  const startLoading = () => setLoading(true);
-  const stopLoading = () => setLoading(false);
-
-  useEffect(() => {
-    Router.events.on("routeChangeStart", startLoading);
-    Router.events.on("routeChangeComplete", stopLoading);
-
-    return () => {
-      Router.events.off("routeChangeStart", startLoading);
-      Router.events.off("routeChangeComplete", stopLoading);
-    };
-  }, []);
+  console.log(router);
+  console.log(perPage);
 
   const pagginationHandler = (page) => {
     const currentPath = router.pathname;
-    const currentQuery = { ...router.query };
-    currentQuery.page = page.selected + 1;
-
+    const currentQuery = router.query;
+    currentQuery.page = page;
     router.push({
       pathname: currentPath,
       query: currentQuery,
@@ -33,27 +21,20 @@ function Players({ totalPage, current, posts }) {
 
   return (
     <div className={styles.players}>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        posts.map((player) => (
-          <div key={player.id}>
-            <p>
-              {player.first_name} {player.last_name}
-            </p>
-          </div>
-        ))
-      )}
-
-      <ReactPaginate className={styles.list}
-        previousLabel={"previous"}
-        nextLabel={"next"}
-        breakLabel={"..."}
-        initialPage={current - 1}
-        pageCount={totalPage}
-        marginPagesDisplayed={3}
-        pageRangeDisplayed={5}
-        onPageChange={pagginationHandler}
+      {posts.map((player) => (
+        <p key={player.id} className={styles.playerList}>
+          {player.first_name} {player.last_name}
+        </p>
+      ))}
+      <Pagination
+        activePage={current}
+        itemsCountPerPage={1}
+        totalItemsCount={totalPage}
+        pageRangeDisplayed={3}
+        onChange={pagginationHandler}
+        innerClass={styles.list}
+        itemClass={styles.listLi}
+        activeClass={styles.active}
       />
     </div>
   );

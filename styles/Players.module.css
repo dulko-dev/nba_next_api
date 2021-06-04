@@ -1,3 +1,29 @@
 .players {
   text-align: center;
+  padding-top: 50px;
+}
+
+.playerList {
+  padding-top: 7px;
+}
+
+.active a {
+  color: red !important;
+}
+
+.list {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listLi {
+  margin-right: 20px;
+  list-style-type: none;
+}
+
+.listLi a {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
 }
