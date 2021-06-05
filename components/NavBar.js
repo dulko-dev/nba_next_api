@@ -12,7 +12,9 @@ function NavBar() {
         <Link href="/players">
           <li>Players</li>
         </Link>
-        <li>Games</li>
+        <Link href="/games">
+          <li>Games</li>
+        </Link>
         <li>Stats</li>
         <li>Contact</li>
       </ul>

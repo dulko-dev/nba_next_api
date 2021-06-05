@@ -2,10 +2,11 @@ import React from "react";
 import Pagination from "react-js-pagination";
 import { useRouter } from "next/router";
 import styles from "../styles/Players.module.css";
-import PlayerStats from '../components/PlayerStats';
+import PlayerStats from "../components/PlayerStats";
 
 function Players({ totalPage, current, posts }) {
   const router = useRouter();
+  console.log(router);
 
   const pagginationHandler = (page) => {
     const currentPath = router.pathname;
@@ -31,7 +32,7 @@ function Players({ totalPage, current, posts }) {
         <tbody>
           {posts.map((player) => (
             <tr key={player.id} className={styles.playerList}>
-              <PlayerStats player={player}/>
+              <PlayerStats player={player} />
             </tr>
           ))}
         </tbody>
@@ -57,6 +58,7 @@ export const getServerSideProps = async ({ query }) => {
   const post = await fetch(
     `https://www.balldontlie.io/api/v1/players?page=${page}`
   );
+
   const result = await post.json();
 
   return {

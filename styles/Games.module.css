@@ -1,0 +1,52 @@
+.games {
+  text-align: center;
+  padding-top: 50px;
+  min-height: 622px;
+  position: relative;
+}
+
+.table {
+  width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 3px 0;
+}
+
+.table th {
+  text-transform: uppercase;
+  width: 25%;
+}
+
+.table th:first-child,
+.table th:last-child {
+  width: 10%;
+}
+
+.gamesList:nth-child(odd) {
+  background-color: grey;
+}
+
+.active a {
+  color: red !important;
+}
+
+.list {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listLi {
+  margin-right: 20px;
+  list-style-type: none;
+}
+
+.listLi a {
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+}
