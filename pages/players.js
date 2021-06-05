@@ -2,12 +2,10 @@ import React from "react";
 import Pagination from "react-js-pagination";
 import { useRouter } from "next/router";
 import styles from "../styles/Players.module.css";
+import PlayerStats from '../components/PlayerStats';
 
 function Players({ totalPage, current, posts }) {
   const router = useRouter();
-
-  console.log(router);
-  console.log(perPage);
 
   const pagginationHandler = (page) => {
     const currentPath = router.pathname;
@@ -21,21 +19,35 @@ function Players({ totalPage, current, posts }) {
 
   return (
     <div className={styles.players}>
-      {posts.map((player) => (
-        <p key={player.id} className={styles.playerList}>
-          {player.first_name} {player.last_name}
-        </p>
-      ))}
-      <Pagination
-        activePage={current}
-        itemsCountPerPage={1}
-        totalItemsCount={totalPage}
-        pageRangeDisplayed={3}
-        onChange={pagginationHandler}
-        innerClass={styles.list}
-        itemClass={styles.listLi}
-        activeClass={styles.active}
-      />
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>position</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>team</th>
+          </tr>
+        </thead>
+        <tbody>
+          {posts.map((player) => (
+            <tr key={player.id} className={styles.playerList}>
+              <PlayerStats player={player}/>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className={styles.pagination}>
+        <Pagination
+          activePage={current}
+          itemsCountPerPage={1}
+          totalItemsCount={totalPage}
+          pageRangeDisplayed={3}
+          onChange={pagginationHandler}
+          innerClass={styles.list}
+          itemClass={styles.listLi}
+          activeClass={styles.active}
+        />
+      </div>
     </div>
   );
 }
