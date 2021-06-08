@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap");
+
+.container {
+  font-family: "Roboto Mono", sans-serif;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.title {
+  font-size: 3em;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+}
+
+.git,
+.linken {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+  font-size: 4.5em;
+  margin: 50px 0;
+}
+
+.git {
+  margin-right: 100px;
+}
+
+.label {
+    display: block;
+}
+
+.button {
+    display: block;
+}

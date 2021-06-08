@@ -4,6 +4,22 @@ import { useRouter } from "next/router";
 import styles from "../styles/Players.module.css";
 import PlayerStats from "../components/PlayerStats";
 
+
+export const getServerSideProps = async ({ query }) => {
+  const page = query.page || 1;
+  const post = await fetch(
+    `https://www.balldontlie.io/api/v1/players?page=${page}`
+  );
+  const result = await post.json();
+  return {
+    props: {
+      totalPage: result.meta.total_pages,
+      current: result.meta.current_page,
+      posts: result.data,
+    },
+  };
+};
+
 function Players({ totalPage, current, posts }) {
   const router = useRouter();
   const arr = [...posts];
@@ -53,19 +69,5 @@ function Players({ totalPage, current, posts }) {
   );
 }
 
-export const getServerSideProps = async ({ query }) => {
-  const page = query.page || 1;
-  const post = await fetch(
-    `https://www.balldontlie.io/api/v1/players?page=${page}`
-  );
-  const result = await post.json();
-  return {
-    props: {
-      totalPage: result.meta.total_pages,
-      current: result.meta.current_page,
-      posts: result.data,
-    },
-  };
-};
 
 export default Players;

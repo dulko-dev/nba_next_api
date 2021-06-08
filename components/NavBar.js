@@ -20,7 +20,9 @@ function NavBar() {
         <Link href="/games">
           <li>Games</li>
         </Link>
-        <li>Contact</li>
+        <Link href="/contact">
+          <li>Contact</li>
+        </Link>
       </ul>
     </nav>
   );
