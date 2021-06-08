@@ -29,12 +29,31 @@ export const getStaticProps = async (context) => {
 function TeamDetails({ data }) {
   return (
     <div className={styles.container}>
-      <h1>{data.full_name}</h1>
-      <p>{data.abbreviation}</p>
-      <p>Conference: {data.conference}</p>
-      <p>Division: {data.division}</p>
-      <p>history: {aboutTeam[data.id-1].info}</p>
-      <img src={aboutTeam[data.id-1].logo} />
+      <div className={styles.title}>
+        <h1>{data.full_name}</h1>
+        <p>{data.abbreviation}</p>
+      </div>
+      <img
+        className={styles.logo}
+        src={aboutTeam[data.id - 1].logo}
+        width={200}
+        height={200}
+      />
+      <div className={styles.conference}>
+        <p>Conference:</p>
+        <span>{data.conference} </span>
+      </div>
+      <div className={styles.division}>
+        <p>Division:</p>
+        <span>{data.division}</span>
+      </div>
+      <div className={styles.city}>
+        <p>City:</p>
+        <span>{data.city}</span>
+      </div>
+      <div className={styles.history}>
+        <span>{aboutTeam[data.id - 1].info}</span>
+      </div>
     </div>
   );
 }
