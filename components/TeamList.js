@@ -4,7 +4,9 @@ import Link from "next/link";
 function TeamList({ team }) {
   return (
     <Link href={`/${team.id}`}>
-        <span className={styles.team}>{team.full_name}</span>
+      <p className={styles.team}>
+        <span>{team.full_name}</span>
+      </p>
     </Link>
   );
 }

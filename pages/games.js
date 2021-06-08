@@ -1,9 +1,19 @@
+import React, { useEffect } from "react";
 import Pagination from "react-js-pagination";
 import { useRouter } from "next/router";
 import styles from "../styles/Games.module.css";
 
 function games({ totalPages, currentPage, result }) {
-
+  let array = [...result];
+  array.sort((a, b) => {
+    if (a.date < b.date) {
+      return -1;
+    }
+    if (a.date > b.date) {
+      return 1;
+    }
+    return 0;
+  });
 
   const router = useRouter();
   console.log(router);
@@ -32,7 +42,7 @@ function games({ totalPages, currentPage, result }) {
           </tr>
         </thead>
         <tbody>
-          {result.map((game) => (
+          {array.map((game) => (
             <tr key={game.id} className={styles.gamesList}>
               <td>{game.date.slice(0, 10)}</td>
               <td>{game.home_team.city}</td>

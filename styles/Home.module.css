@@ -3,6 +3,7 @@
 .container {
   width: 100%;
   min-height: 100vh;
+  font-family: "ZCOOL KuaiLe", cursive;
 }
 
 .home {
@@ -17,13 +18,13 @@
   justify-content: center;
   align-items: center;
   font-size: 3em;
-  font-family: "ZCOOL KuaiLe", cursive;
 }
 
 .team_list {
-  max-width: 1400px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
+
 }
 
 

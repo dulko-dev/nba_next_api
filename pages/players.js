@@ -6,7 +6,7 @@ import PlayerStats from "../components/PlayerStats";
 
 function Players({ totalPage, current, posts }) {
   const router = useRouter();
-  console.log(router);
+  const arr = [...posts];
 
   const pagginationHandler = (page) => {
     const currentPath = router.pathname;
@@ -30,11 +30,11 @@ function Players({ totalPage, current, posts }) {
           </tr>
         </thead>
         <tbody>
-          {posts.map((player) => (
-            <tr key={player.id} className={styles.playerList}>
-              <PlayerStats player={player} />
-            </tr>
-          ))}
+          {arr.map((player) => (
+                <tr key={player.id} className={styles.playerList}>
+                  <PlayerStats player={player} />
+                </tr>
+              ))}
         </tbody>
       </table>
       <div className={styles.pagination}>
@@ -58,9 +58,7 @@ export const getServerSideProps = async ({ query }) => {
   const post = await fetch(
     `https://www.balldontlie.io/api/v1/players?page=${page}`
   );
-
   const result = await post.json();
-
   return {
     props: {
       totalPage: result.meta.total_pages,

@@ -1,6 +1,12 @@
 .team {
-    display: inline-block;
-    min-width: 225px;
-    height: 100px;
-    cursor: pointer;
+  display: inline-block;
+  text-align: left;
+  width: 200px;
+  padding-top: 15px;
+}
+
+.team span:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  color: rgb(124, 117, 107);
 }

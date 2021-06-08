@@ -1,7 +1,7 @@
 import React from "react";
 
-function PlayerStats({ player, data }) {
-  console.log(data);
+function PlayerStats({ player }) {
+
 
   return (
     <>
@@ -12,18 +12,5 @@ function PlayerStats({ player, data }) {
     </>
   );
 }
-
-export const getStaticProps = async () => {
-  const res = await fetch(
-    `https://www.balldontlie.io/api/v1/players?search=Gortat`
-  );
-  const data = await res.json();
-
-  return {
-    props: {
-      data: data.data
-    },
-  };
-};
 
 export default PlayerStats;
