@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Pagination from "react-js-pagination";
 import { useRouter } from "next/router";
 import styles from "../styles/Games.module.css";
@@ -16,8 +16,6 @@ function games({ totalPages, currentPage, result }) {
   });
 
   const router = useRouter();
-  console.log(router);
-
   const pagginationHandler = (page) => {
     const currentPage = router.pathname;
     const queryCurrent = router.query;

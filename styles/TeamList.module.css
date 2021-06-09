@@ -1,7 +1,7 @@
 .team {
   display: inline-block;
   text-align: left;
-  width: 200px;
+  width: 250px;
   padding-top: 15px;
 }
 
@@ -9,4 +9,8 @@
   cursor: pointer;
   transition: 0.4s;
   color: rgb(124, 117, 107);
+}
+
+.team:nth-child(even) {
+  text-align: right;
 }

@@ -13,32 +13,56 @@ function Contact() {
     reply_to: "",
     from_number: "",
   });
+  const [error, setError] = useState(false);
+  const [goodSend, setGoodSend] = useState(false);
 
-  let inputField;
+  const regexEmail = (email) => {
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
 
   useEffect(() => {
-    inputField = document.getElementById("replyTo");
-    if (toSend.reply_to.length > 0) {
-      inputField.style.border = "1px solid rgb(212, 212, 212)";
-    }
-  }, [toSend.reply_to]);
+    let inputEmail = document.getElementById("replyTo");
+    let inputName = document.getElementById("fromName");
+    let inputMessage = document.getElementById("message");
 
-  const [error, setError] = useState(false);
+    if (regexEmail(toSend.reply_to)) {
+      inputEmail.style.border = "1px solid rgb(212, 212, 212)";
+    }
+    if (toSend.from_name.length > 1) {
+      inputName.style.border = "1px solid rgb(212, 212, 212)";
+    }
+    if (toSend.message.trim().length > 1) {
+      inputMessage.style.border = "1px solid rgb(212, 212, 212)";
+    }
+  }, [toSend.reply_to, toSend.from_name, toSend.message]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    inputField = document.getElementById("replyTo");
+    let inputEmail = document.getElementById("replyTo");
+    let inputName = document.getElementById("fromName");
+    let inputMessage = document.getElementById("message");
 
-    if (toSend.reply_to.length === 0) {
-      inputField.style.border = "1px solid red";
+    if (!regexEmail(toSend.reply_to)) {
+      inputEmail.style.border = "1px solid red";
+    }
+    if (toSend.from_name.length <= 1) {
+      inputName.style.border = "1px solid red";
+    }
+    if (toSend.message.length === 0) {
+      inputMessage.style.border = "1px solid red";
     }
 
     if (
       toSend.from_name.trim().length < 3 ||
       toSend.message.length === 0 ||
-      toSend.reply_to.length === 0
+      regexEmail(toSend.reply_to) === false
     ) {
       setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+
       return;
     }
 
@@ -49,11 +73,14 @@ function Contact() {
       "user_tkro5BbWGAiTWmR58DLTb"
     )
       .then((response) => {
-        console.log("SUCCESS", response.status, response.text);
+        if (response.status === 200) {
+          setGoodSend(true);
+        }
       })
       .catch((err) => {
-        console.log("FAILED", err);
+        console.log(err);
       });
+
     setToSend({
       from_name: "",
       message: "",
@@ -61,6 +88,9 @@ function Contact() {
       from_number: "",
     });
     setError(false);
+    setTimeout(() => {
+      setGoodSend(false);
+    }, 6000);
   };
 
   const handleChange = (e) => {
@@ -88,18 +118,12 @@ function Contact() {
           </Link>
         </div>
 
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} style={{ position: "relative" }}>
           {error && (
-            <div
-              style={{
-                textAlign: "center",
-                color: "red",
-                textTransform: "uppercase",
-                padding: "10px 0",
-              }}
-            >
-              Please fill empty fields
-            </div>
+            <div className={styles.error}>Please fill empty fields</div>
+          )}
+          {goodSend && (
+            <div className={styles.good}>Thank you, email has been sent.</div>
           )}
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>

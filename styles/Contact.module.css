@@ -35,6 +35,31 @@
   margin-right: 100px;
 }
 
+.error {
+  font-size: 1.2em;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: red;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.good {
+  position: absolute;
+  font-size: 1.2em;
+
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgb(45, 129, 45);
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
 .fieldset {
   position: relative;
   border: none;
@@ -70,6 +95,16 @@
   border-radius: 4px;
 }
 
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .textarea {
   border-radius: 4px;
   resize: none;
@@ -80,6 +115,7 @@
   width: 700px;
   height: 150px;
   border: 1px solid rgb(212, 212, 212);
+  outline: none;
 }
 
 .textarea::placeholder {
@@ -93,10 +129,11 @@
 .button {
   display: inline-block;
   border-radius: 4px;
+  border: none;
   padding: 10px 40px;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
 }
-
