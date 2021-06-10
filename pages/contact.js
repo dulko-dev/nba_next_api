@@ -127,7 +127,7 @@ function Contact() {
           )}
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>
-              or You can send me an message
+              or You can send me the message
             </legend>
             <div className={styles.row}>
               <label htmlFor="fromName" className={styles.label}>
