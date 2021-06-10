@@ -24,7 +24,7 @@
     <li>form contact with me</li>
   </ul>
     <p>This is the desktop version</p>
-    <p>This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).</p>
+    <p>This project was bootstrapped with - <a href='https://github.com/vercel/next.js/tree/canary/packages/create-next-app'<p>Create Next App </p></a></p>
     </td>
   </tr>
   </table>
@@ -32,16 +32,13 @@
 ## Technologies
 Project is created with:
 <ul>
-  <li>next js:
-    <ul>
-      <li>react</li>
-      <li>react-js-pagination</li>
-    </ul>
-  </li>
-  <li>javascript</li>
-  <li>email js</li>
-  <li>fontAwesome</li>
-  <li>api - https://www.balldontlie.io/</li>
+ <li>next</li>
+ <li>react</li>
+ <li>react-js-pagination</li>
+ <li>javascript</li>
+ <li>email js</li>
+ <li>fontAwesome</li>
+ <li>api - https://www.balldontlie.io/</li>
 </ul>
 
 ## Build Process
